@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% load course_tags %}
+{% block content %}
+  <section class="section-top">
+    <div class="container">
+      <div class="col-lg-10 offset-lg-1 text-center">
+        <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+          <h1>جزئیات دوره</h1>
+          <ul>
+            <li>
+              <a href="{% url 'core:index' %}">صفحه اصلی</a>
+            </li>
+            <li>/ جزئیات دروس</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="our_event section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-8 col-xs-12">
+          <div class="single_event_single">
+            <img alt="{{ course.title }}" class="img-fluid" src="{{ course.image.url }}" /><div class="single_event_text_single">
+              <h4>{{ course.title }}</h4>
+              <span><i class="fa fa-calendar"></i>{{ course.published_date|naturalday }}</span><span><i class="fa fa-clock-o"></i>{{ course.duration_hours }} ساعت </span><span><i class="fa fa-table"></i><strong>{{ course.capacity }} صندلی موجود</strong></span>
+              <p>{{course.overview|truncatewords:20}}</p>
+            </div>
+          </div>
+          <div class="course-details-content section-bg">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+                <a href="#overview" class="nav-link active" data-bs-toggle="tab">بررسی اجمالی</a>
+              </li>
+              <li>
+                <a href="#curriculum" class="nav-link" data-bs-toggle="tab">برنامه تحصیلی</a>
+              </li>
+              <li class="nav-item">
+                <a href="#instructor" class="nav-link" data-bs-toggle="tab">مربی</a>
+              </li>
+              <li class="nav-item">
+                <a href="#reviews" class="nav-link" data-bs-toggle="tab">بررسی ها</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane show fade active" id="overview">
+                <div class="overview">
+                  <p>{{ course.overview }}</p>
+                  <div class="details-buttons-area">
+                    <a href="{% url 'account_signup' %}" class="custom-button theme-one">اکنون ثبت نام کنید<i class="fa fa-angle-right"></i></a><a href="{% url 'account_signup' %}" class="custom-button bg-white">عضویت دریافت کنید</a><ul class="social-icons">
+                      <li>
+                        <a href="#0" class="active"><i class="fa fa-facebook"></i></a>
+                      </li>
+                      <li>
+                        <a href="#0"><i class="fa fa-twitter"></i></a>
+                      </li>
+                      <li>
+                        <a href="#0"><i class="fa fa-instagram"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" role="tabpanel" id="curriculum">
+                <div class="overview">
+                  <p>{{ course.curriculum }}</p>
+                  <div class="details-buttons-area">
+                    <a href="{% url 'account_signup' %}" class="custom-button theme-one">اکنون ثبت نام کنید<i class="fa fa-angle-right"></i></a><a href="{% url 'account_signup' %}" class="custom-button bg-white">عضویت دریافت کنید</a><ul class="social-icons">
+                      <li>
+                        <a href="#0"><i class="fa fa-facebook"></i></a>
+                      </li>
+                      <li>
+                        <a href="#0"><i class="fa fa-twitter"></i></a>
+                      </li>
+                      <li>
+                        <a href="#0"><i class="fa fa-instagram"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="instructor">
+                <div class="overview text-center">
+                  <div class="instructor-item">
+                    <div class="instructor-thumb">
+                      <a href="#0"><img src="{{ course.instructor.image.url }}" alt="instructor" /></a>
+                    </div>
+                    <div class="instructor-content">
+                      <h6 class="title"><a href="#0">{{ course.instructor.name }}</a></h6>
+                      <span class="details">{{ course.instructor.expertise }}</span>
+                    </div>
+                  </div>
+                  <p>{{ course.instructor.bio }}</p>
+                  <div class="details-buttons-area">
+                    <ul class="social-icons justify-content-center w-100">
+                      <li>
+                        <a href="#0"><i class="fa fa-facebook"></i></a>
+                      </li>
+                      <li>
+                        <a href="#0" class="active"><i class="fa fa-twitter"></i></a>
+                      </li>
+                      <li>
+                        <a href="#0"><i class="fa fa-instagram"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {% include 'course/course_comments.html' %}
+            
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-xs-12">
+          <div class="course_features">
+            <h3>ویژگی های دوره</h3>
+            <ul>
+              <li>
+                <i class="fa fa-calendar"></i>طول دوره<b>{{course.duration_hours}} ساعت</b>
+              </li>
+              <li>
+                <i class="fa fa-user"></i>کل سخنرانی ها<b>{{course.total_lectures}}</b>
+              </li>
+              <li>
+                <i class="fa fa-user"></i>کل دانش آموزان<b>{{course.students_count}}</b>
+              </li>
+              <li>
+                <i class="fa fa-trophy"></i>گواهینامه
+                <b>
+                  {% if course.has_certificate == 'true' or course.has_certificate == True %} 
+                     بله
+                  {% else %}
+                     خیر
+                  {% endif %}
+                </b>
+              </li>
+            </ul>
+          </div>
+          <div class="event_info_price">
+            <h4>قیمت - {{course.price}} تومان</h4>
+          </div>
+          <div class="event_info_register">
+            <a class="btn_one" href="{% url 'account_signup' %}">امروز ثبت نام کنید</a>
+          </div>
+          {% courserelated course.id %}
+          
+          {% coursecategory %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

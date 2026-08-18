@@ -1,0 +1,17 @@
+{% load static %}
+<div class="sidebar-post">
+  <div class="sidebar_title">
+    <h4>دسته بندی ها</h4>
+  </div>
+  <div class="single_category">
+    <ul>
+      {% for name, count in categories.items %}
+        <li>
+          <a href="{% url 'course:course_category' cat_name=name %}">{{ name }}<sup>({{ count }})</sup></a>
+        </li>
+      {% empty %}
+        <li>دسته‌بندی یافت نشد.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

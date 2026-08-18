@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load blog_tags %}
+{% block content %}
+  <section class="section-top">
+    <div class="container">
+      <div class="col-lg-10 offset-lg-1 text-center">
+        <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+          <h1>وبلاگ تک</h1>
+          <ul>
+            <li>
+              <a href="{% url 'core:index' %}">صفحه اصلی</a>
+            </li>
+            <li>/ جزئیات وبلاگ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="blog-page section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 col-sm-12 col-xs-12">
+          <div class="arti_single">
+            <div class="arti_img_two">
+              <img src="{{ posts.image.url }}" class="img-fluid" alt="post_image" />
+            </div>
+            <div class="arti_sp">
+              <h2>{{ posts.title }}</h2>
+              <p>{{ posts.content }}</p>
+            </div>
+            <div class="share_sp">
+              <h4>اشتراک گذاری</h4>
+              <ul>
+                <li>
+                  <a href="#"><span class="ti-facebook"></span>فیس بوک</a>
+                </li>
+                <li>
+                  <a href="#"><span class="ti-twitter"></span>توییتر</a>
+                </li>
+                <li>
+                  <a href="#"><span class="ti-instagram"></span>اینستاگرام</a>
+                </li>
+                <li>
+                  <a href="#"><span class="ti-linkedin"></span>لینکدین</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          {% include 'blog/blog_navigation.html' %}  
+          <div class="author_part">
+            <h3 class="blog_head_title">درباره نویسنده</h3>
+            <div class="single_author">
+              <img src="{{ posts.author.profile.avatar.url }}" alt="{{ posts.author.username }}" /><h4>{{ posts.author.username }}</h4>
+              <p>{{ posts.author.profile.bio }}</p>
+            </div>
+          </div>      
+          {% include 'blog/blog_comments.html' %}
+        </div>
+        <div class="col-lg-5 col-sm-12 col-xs-12">
+          {% include 'blog/blog_follow_us.html' %}
+          {% include 'blog/blog_ads.html' %}
+          {% include 'blog/blog_newsletter.html' %}
+          {% postcategory %}
+          {% include 'blog/blog-tags.html' %}
+          {% popularposts %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

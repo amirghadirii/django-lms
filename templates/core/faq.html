@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="section-top">
+  <div class="container">
+    <div class="col-lg-10 offset-lg-1 text-center">
+      <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+        <h1>سوالات متداول</h1>
+        <ul>
+          <li>
+            <a href="{% url 'core:index' %}">صفحه اصلی</a>
+          </li>
+          <li>/ پرسش و پاسخ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="faq_area section-padding">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 col-sm-12 col-xs-12">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">چطور در دوره‌های آموزش برنامه‌نویسی ثبت‌نام کنیم؟</button></h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body">برای ثبت‌نام در دوره‌های آموزش برنامه‌نویسی و توسعه وب، کافی است وارد صفحه دوره موردنظر شوید و روی دکمه ثبت‌نام کلیک کنید. پس از تکمیل فرآیند پرداخت، دسترسی کامل به ویدئوها و فایل‌های آموزشی برای شما فعال می‌شود.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">آیا دوره‌های آموزش وب پروژه‌محور هستند؟</button></h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">بله، تمام دوره‌های آموزش طراحی سایت و برنامه‌نویسی ما به‌صورت کاملاً پروژه‌محور طراحی شده‌اند. شما در طول دوره با انجام پروژه‌های واقعی، مهارت‌های عملی لازم برای ورود به بازار کار را کسب می‌کنید.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">آیا بعد از پایان دوره مدرک دریافت می‌کنیم؟</button></h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">پس از اتمام موفقیت‌آمیز دوره‌های آموزش برنامه‌نویسی، گواهی پایان دوره به شما ارائه می‌شود. این گواهی می‌تواند به عنوان رزومه مهارتی برای استخدام یا انجام پروژه‌های فریلنسری استفاده شود.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">آیا دوره‌های برنامه‌نویسی پشتیبانی دارند؟</button></h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+              <div class="accordion-body">بله، تمامی دانشجویان دوره‌های توسعه وب و برنامه‌نویسی از پشتیبانی تخصصی بهره‌مند می‌شوند. شما می‌توانید سوالات خود را در بخش پشتیبانی مطرح کنید و از راهنمایی مدرسین استفاده کنید.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">از چه سطحی می‌توان آموزش برنامه‌نویسی را شروع کرد؟</button></h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+              <div class="accordion-body">دوره‌های آموزش برنامه‌نویسی ما از سطح مبتدی تا پیشرفته طراحی شده‌اند. حتی اگر هیچ پیش‌زمینه‌ای در کدنویسی ندارید، می‌توانید با دوره‌های مقدماتی شروع کرده و به‌صورت گام‌به‌گام به سطح حرفه‌ای برسید.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 col-sm-12 col-xs-12">
+        <div class="faq_img">
+          <img src="{% static 'assets/img/faq.jpg' %}" alt="faq image" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

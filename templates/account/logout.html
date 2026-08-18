@@ -1,0 +1,45 @@
+{% extends 'account/base_auth.html' %}
+{% block auth_content %}
+  <div class="login100-form text-center">
+    <span class="login100-form-title">
+      خروج از حساب
+    </span>
+
+    <p class="p-b-20 txt2">
+      آیا مطمئن هستید که می‌خواهید از حساب کاربری خود خارج شوید؟
+    </p>
+
+    <form method="post" action="{% url 'account_logout' %}">
+      {% csrf_token %}
+      {% include 'account/_errors.html' %}
+      <div class="container-login100-form-btn">
+        <button type="submit" class="login100-form-btn">
+          بله، خارج می‌شوم
+        </button>
+      </div>
+    </form>
+
+    <div class="text-center p-t-40">
+      <div class="m-b-10">
+        <a class="txt2" href="{% url 'account_change_password' %}">
+          <i class="fa fa-key m-l-5"></i>
+          تغییر رمز عبور
+        </a>
+      </div>
+      
+      <div>
+        <a class="txt2" href="{% url 'account_email' %}">
+          <i class="fa fa-envelope m-l-5"></i>
+          مدیریت ایمیل‌ها
+        </a>
+      </div>
+    </div>
+
+    <div class="text-center p-t-50">
+      <a class="txt2" href="/">
+        انصراف و بازگشت به سایت
+        <i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+{% endblock %}

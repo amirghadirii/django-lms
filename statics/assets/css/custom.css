@@ -1,0 +1,15 @@
+.error-container, .messages-container {
+  width: 100%;
+  margin-bottom: 15px;
+}
+.error-item {
+  color: #e74c3c;
+  font-size: 13px;
+  text-align: center;
+}
+.message-item {
+  color: #2ecc71;
+  font-size: 13px;
+  text-align: center;
+}
+

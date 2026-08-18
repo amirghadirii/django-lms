@@ -1,0 +1,36 @@
+{% load static %}
+<div class="navigation-area my-5">
+  <div class="row align-items-center">
+
+    <!-- Previous Post -->
+    <div class="col-lg-6 col-md-6 col-12 nav-prev d-flex align-items-center justify-content-start mb-3 mb-md-0">
+      {% if prev_post %}
+        <div class="thumb me-3">
+          <a href="{% url 'blog:single' pid=prev_post.id %}">
+            <img src="{{ prev_post.image.url }}" alt="{{ prev_post.title }}" class="img-fluid">
+          </a>
+        </div>
+        <div class="details">
+          <p class="nav-label mb-1">پست قبلی</p>
+          <a href="{% url 'blog:single' pid=prev_post.id %}" class="nav-title">{{ prev_post.title }}</a>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Next Post -->
+    <div class="col-lg-6 col-md-6 col-12 nav-next d-flex align-items-center justify-content-end">
+      {% if next_post %}
+        <div class="details me-3 text-end">
+          <p class="nav-label mb-1">پست بعدی</p>
+          <a href="{% url 'blog:single' pid=next_post.id %}" class="nav-title">{{ next_post.title }}</a>
+        </div>
+        <div class="thumb">
+          <a href="{% url 'blog:single' pid=next_post.id %}">
+            <img src="{{ next_post.image.url }}" alt="{{ next_post.title }}" class="img-fluid">
+          </a>
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</div>

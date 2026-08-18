@@ -1,0 +1,32 @@
+{% load static %}
+<div class="user-details">
+
+    <p>
+        <span class="meta-label">نویسنده</span>
+        <a href="{% url 'blog:author' author_username=posts.author %}" class="meta-value">
+            {{ posts.author.get_full_name|default:posts.author.username }}
+        </a>
+    </p>
+
+    <p>
+        <span class="meta-label">تاریخ انتشار</span>
+        <span class="meta-value">
+            {{ posts.published_date|date:"d M Y" }}
+        </span>
+    </p>
+
+    <p>
+        <span class="meta-label">بازدید</span>
+        <span class="meta-value">
+            {{ posts.counted_views }} بازدید
+        </span>
+    </p>
+
+    <p>
+        <span class="meta-label">دیدگاه‌ها</span>
+        <a href="#comments" class="meta-value">
+            {{comments|length}}
+        </a>
+    </p>
+
+</div>

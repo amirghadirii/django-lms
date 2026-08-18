@@ -1,0 +1,18 @@
+{% load static %}
+{% for course in courses %}
+  <div class="col-lg-4 col-sm-6 col-xs-12">
+    <div class="single_course">
+      <div class="single_c_img">
+        <img src="{{ course.image.url }}" class="img-fluid" alt="{{ course.title }}" /><span>{{ course.category }}</span>
+      </div>
+      <div class="course_review">
+        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+      </div>
+      <h4><a href="{% url 'course:course_details' slug=course.slug %}" title="{{ course.title }}">{{ course.title }}</a></h4>
+      <p>
+        <span class="ti-alarm-clock"></span> ساعت {{ course.duration_hours }}
+      </p>
+      <div class="price">هزینه دوره - {{ course.price }} تومان</div>
+    </div>
+  </div>
+{% endfor %}

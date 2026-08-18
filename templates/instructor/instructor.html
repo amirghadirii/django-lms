@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <section class="section-top">
+    <div class="container">
+      <div class="col-lg-10 offset-lg-1 text-center">
+        <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+          <h1>مربی ما</h1>
+          <ul>
+            <li>
+              <a href="{% url 'core:index' %}">صفحه اصلی</a>
+            </li>
+            <li>/ مربی ها</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="team_area section-padding">
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>با مربیان ما آشنا شوید</h2>
+        <p>ما یک رویکرد کاملاً جدید برای اساسی ترین پارادایم های یادگیری ارائه می دهیم. از میان طیف گسترده ای از گزینه های یادگیری انتخاب کنید و مهارت های جدیدی به دست آورید! مدرسه ما معلوم است</p>
+      </div>
+      <div class="row">
+        {% for teacher in teachers %}
+          <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+            <div class="our-team">
+              <div class="team-content">
+                <a href="{% url 'instructor:instructor_single' slug=teacher.slug %}"><img src="{{ teacher.image.url }}" alt="{{ teacher.name }}" /></a>
+              </div>
+              <div class="team-prof">
+                <h3>{{ teacher.name }}</h3>
+                <span>{{ teacher.expertise }}</span>
+              </div>
+              <div class="sth_det2">
+                <span class="ti-file"><u>{{ teacher.get_courses_count }} دوره</u></span><span class="ti-user"><u>{{ teacher.get_total_students }} دانشجو</u></span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <!-- Pagination -->
+      {% if teachers.has_other_pages %}
+        <nav class="blog-pagination justify-content-center d-flex">
+          <ul class="pagination">
+            {% if teachers.has_previous %}
+              <li class="page-item">
+                <a href="?page={{ teachers.previous_page_number }}" class="page-link" aria-label="Previous">
+                    <span aria-hidden="true"><span class="lnr lnr-chevron-left"></span></span>
+                </a>
+              </li>
+            {% endif %}
+
+            {% for i in teachers.paginator.page_range %}
+              {% if teachers.number == i %}
+                <li class="page-item active">
+                  <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                </li>
+              {% elif i >= teachers.number|add:'-2' and i <= teachers.number|add:'2' %}
+                <li class="page-item">
+                  <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+
+            {% if teachers.has_next %}
+              <li class="page-item">
+                <a href="?page={{ teachers.next_page_number }}" class="page-link" aria-label="Next">
+                    <span aria-hidden="true"><span class="lnr lnr-chevron-right"></span></span>
+                </a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="section-top">
+  <div class="container">
+    <div class="col-lg-10 offset-lg-1 text-center">
+      <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+        <h1>سایت در حال به‌روزرسانی است</h1>
+        <ul>
+          <li>
+            <a href="{% url 'core:index' %}">صفحه اصلی</a>
+          </li>
+          <li>/ نگهداری</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="zero_area section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-sm-12 col-xs-12 text-center">
+        <div class="error_page">
+          <img src="{% static 'assets/img/maintenance.svg' %}" class="img-fluid" alt="صفحه نگهداری" />
+          <h2>سایت ما در حال بروزرسانی است!</h2>
+          <p>هم‌اکنون تیم ما در حال بهبود و ارتقای سرویس‌هاست. لطفاً بعداً دوباره مراجعه کنید.</p>
+          <div class="home_btn">
+            <a href="{% url 'core:index' %}" class="btn_one">بازگشت به خانه</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

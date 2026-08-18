@@ -1,0 +1,63 @@
+{% load static %}
+<div class="tab-pane fade" id="reviews">
+  <div class="client-review">
+    <div class="review-comments">
+      <h6 class="review-title">نظرات {{comments|length}}</h6>
+      <ul class="review-contents">
+        <li>
+          {% for comment in comments %}
+            <div class="thumb">
+              <img src="{% static 'assets/img/client02.png' %}" alt="course" />
+            </div>
+            <div class="cont">
+              <h6 class="subtitle">{{ comment.user }}</h6>
+              <div class="comment-stars">
+                {% for i in "12345" %}
+                  <i class="fa fa-star {% if forloop.counter <= comment.rating %}text-warning{% else %}text-muted{% endif %}"></i>
+                {% endfor %}
+              </div>
+              <p>{{ comment.text }}</p>
+            </div>
+          {% empty %}
+            <p>هنوز هیچ نظری ثبت نشده است.</p>
+          {% endfor %}
+        </li>
+      </ul>
+    </div>
+    <div class="review-form">
+      <h6 class="review-title">یک بررسی اضافه کنید</h6>
+      <form class="row client-form align-items-center" method="post" action="{% url 'course:course_details' slug=course.slug %}" id="comment-form">
+        {% csrf_token %}
+
+        <div class="col-md-4 col-12">
+          <input type="text" name="name" placeholder="نام و نام خانوادگی" autocomplete="name" value="{% if request.user.is_authenticated %}{{ request.user.get_full_name|default:request.user.username }}{% endif %}" />
+        </div>
+
+        <div class="col-md-4 col-12">
+          <input type="email" name="email" placeholder="آدرس پست الکترونیکی" autocomplete="email" value="{% if request.user.is_authenticated %}{{ request.user.email }}{% endif %}" />
+        </div>
+
+        <div class="col-md-4 col-12">
+          <div class="rating-wrapper">
+            <span class="rating-title">امتیاز شما:</span>
+            <div class="star-rating">
+              <input type="radio" id="star5" name="rating" value="5" checked /><label for="star5" title="5 stars"></label>
+              <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars"></label>
+              <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars"></label>
+              <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars"></label>
+              <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star"></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-12 d-inline-flex">
+          <textarea rows="5" name="text" placeholder="اینجا پیام را تایپ کنید" required></textarea>
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="custom-button rounded">ارسال بررسی</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

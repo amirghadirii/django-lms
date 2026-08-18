@@ -1,0 +1,15 @@
+<div class="sidebar-post">
+  <div class="sidebar_title">
+    <h4>دسته بندی ها</h4>
+  </div>
+  <div class="single_category">
+    <ul>
+      <li>
+          {% for name,count in categories.items %}
+          <a href="{% url 'blog:category' cat_name=name %}">{{name}}
+            <sup>{{count}}</sup></a>
+          {% endfor %}
+      </li>
+    </ul>
+  </div>
+</div>

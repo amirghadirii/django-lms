@@ -1,0 +1,12 @@
+{% load static %}
+<div class="sidebar-post">
+  <div class="sidebar_title">
+    <h4>آخرین پست ها</h4>
+  </div>
+  {% for post in posts %}
+    <div class="single_popular">
+      <a href="single_blog.html"><img src="{{ post.image.url }}" alt="post_image" /></a>
+      <h5><a href="{% url 'blog:single' pid=post.id %}">{{ post.title }}</a></h5>
+    </div>
+  {% endfor %}
+</div>

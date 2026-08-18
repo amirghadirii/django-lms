@@ -1,0 +1,186 @@
+{% load compress %}
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="آکادمی تخصصی آموزش برنامه‌نویسی و طراحی وب - یادگیری پروژه‌محور از صفر تا ورود به بازار کار با اساتید مجرب." />
+    <meta name="keywords" content="آموزش برنامه نویسی, طراحی وب, پایتون, جاوااسکریپت, دوره آنلاین برنامه نویسی, آموزش جنگو" />
+    <meta name="author" content="Eduleb Academy" />
+
+    <title>{% block title %}آکادمی برنامه‌نویسی ادولب | مرجع آموزش تخصص‌های دیجیتال{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet" />
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/fonts/themify-icons.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/owlcarousel/css/owl.carousel.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/owlcarousel/css/owl.theme.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/jquery-simple-mobilemenu.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+    {% endcompress %}
+  </head>
+
+  <body data-bs-spy="scroll" data-bs-target="#navigation" data-bs-offset="80" tabindex="0">
+    
+    <div class="preloaders">
+      <span class="loader"></span>
+    </div>
+
+    <header id="navigation" class="navbar-light bg-faded site-navigation">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-20 align-self-center">
+            <div class="site-logo">
+              <a href="{% url 'core:index' %}">
+                <img src="{% static 'assets/img/logo.png' %}" alt="لوگو آکادمی برنامه‌نویسی ادولب" />
+              </a>
+            </div>
+          </div>
+          <div class="col-60 d-flex">
+            <nav id="main-menu" aria-label="منوی اصلی">
+              <ul>
+                <li><a href="{% url 'core:index' %}" title="خانه">صفحه اصلی</a></li>
+                <li><a href="{% url 'core:about' %}" title="درباره آکادمی">درباره ما</a></li>
+                <li><a href="{% url 'course:course' %}" title="دوره‌های آموزشی">دوره‌ها</a></li>
+                <li><a href="{% url 'instructor:instructor_home' %}" title="اساتید مجرب">مدرسین</a></li>
+                <li><a href="{% url 'blog:home' %}" title="مقالات برنامه‌نویسی">وبلاگ</a></li>
+                <li><a href="{% url 'core:contact' %}" title="ارتباط با ما">تماس با ما</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-20 d-none d-xl-block text-end align-self-center">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'account_logout' %}" class="header-btn" title="خروج از حساب"> خروج </a>
+                <a href="#" class="header-btn" title="پنل کاربری">{{request.user.username}} </a>
+            {% else %}
+              <a href="{% url 'account_login' %}" class="header-btn" title="ورود به سایت">ورود</a>
+              <a href="{% url 'account_signup' %}" class="btn_one" title="ثبت نام دانشجو">ثبت نام</a>
+            {% endif %}
+          </div>
+          
+          <ul class="mobile_menu">
+            <li><a href="{% url 'core:index' %}">صفحه اصلی</a></li>
+            <li><a href="{% url 'core:about' %}">درباره ما</a></li>
+            <li><a href="{% url 'course:course' %}">دوره‌ها</a></li>
+            <li><a href="{% url 'instructor:instructor_home' %}">مدرسین</a></li>
+            <li><a href="{% url 'blog:home' %}">وبلاگ</a></li>
+            <li><a href="{% url 'core:contact' %}">تماس با ما</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="footer section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-sm-6 col-xs-12">
+            <div class="single_footer">
+              <a href="{% url 'core:index' %}">
+                <img src="{% static 'assets/img/logo.png' %}" alt="آکادمی ادولب" />
+              </a>
+              <p>ما در ادولب به دنبال ارتقای سطح دانش فنی جامعه برنامه‌نویسان هستیم. آموزش با کیفیت حق شماست.</p>
+              <div class="social_profile">
+                <ul>
+                  <li><a href="#" class="f_facebook" title="دنبال کردن در فیسبوک"><i class="ti-facebook"></i></a></li>
+                  <li><a href="#" class="f_twitter" title="دنبال کردن در توییتر"><i class="ti-twitter"></i></a></li>
+                  <li><a href="#" class="f_instagram" title="دنبال کردن در اینستاگرام"><i class="ti-instagram"></i></a></li>
+                  <li><a href="#" class="f_linkedin" title="دنبال کردن در لینکدین"><i class="ti-linkedin"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6 col-xs-12">
+            <div class="single_footer">
+              <h4>لینک‌های سریع</h4>
+              <ul>
+                <li><a href="{% url 'core:about' %}">درباره ما</a></li>
+                <li><a href="{% url 'core:contact' %}">ثبت نام مدرس</a></li>
+                <li><a href="{% url 'instructor:instructor_home' %}">لیست اساتید</a></li>
+                <li><a href="{% url 'core:faq' %}">سوالات متداول</a></li>
+                <li><a href="{% url 'core:contact' %}">ارتباط با ما</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6 col-xs-12">
+            <div class="single_footer">
+              <h4>دسته بندی‌ها</h4>
+              <ul>
+                <li><a href="#">توسعه وب</a></li>
+                <li><a href="#">برنامه‌نویسی موبایل</a></li>
+                <li><a href="#">هوش مصنوعی</a></li>
+                <li><a href="#">امنیت شبکه</a></li>
+                <li><a href="#">پایگاه داده</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 col-xs-12">
+            <div class="single_footer">
+              <h4>اطلاعات تماس</h4>
+              <div class="sf_contact">
+                <span class="ti-map"></span><p>تهران، پارک علم و فناوری</p>
+              </div>
+              <div class="sf_contact">
+                <span class="ti-mobile"></span><p>021-88889999</p>
+              </div>
+              <div class="sf_contact">
+                <span class="ti-mobile"></span><p><a href="tel:+982188889999">تماس مستقیم</a></p>
+              </div>
+              <div class="sf_contact">
+                <span class="ti-email"></span><p>info@eduleb.com</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6 col-xs-12">
+            <div class="single_footer">
+              <h4>اپلیکیشن ما</h4>
+              <p>آموزش را همیشه همراه خود داشته باشید.</p>
+              <a href="#"><img src="{% static 'assets/img/google-play.jpg' %}" class="foot_img" alt="دانلود از گوگل پلی" /></a>
+              <a href="#"><img src="{% static 'assets/img/app-store.jpg' %}" class="foot_img" alt="دانلود از اپ استور" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="foot_copy">
+      <div class="footer_copyright text-center">
+        <p>© 2026 آکادمی ادولب. تمام حقوق محفوظ است.</p>
+      </div>
+    </div>
+    {% compress js %}
+    <script src="{% static 'assets/js/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/modernizr-2.8.3.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-simple-mobilemenu.js' %}"></script>
+    <script src="{% static 'assets/owlcarousel/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.inview.min.js' %}"></script>
+    <script src="{% static 'assets/js/scrolltopcontrol.js' %}"></script>
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/scripts.js' %}"></script>
+    {% endcompress %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if messages %}
+      <script>
+        {% for message in messages %}
+          Swal.fire({
+            icon: "{% if message.tags == 'success' %}success{% elif message.tags == 'error' %}error{% else %}info{% endif %}",
+            title: "{{ message }}",
+            confirmButtonColor: "#525fe1"
+          });
+        {% endfor %}
+      </script>
+    {% endif %}
+  </body>
+</html>

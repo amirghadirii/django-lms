@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <section class="section-top">
+    <div class="container">
+      <div class="col-lg-10 offset-lg-1 text-center">
+        <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+          <h1>مشخصات مربی</h1>
+          <ul>
+            <li>
+              <a href="{% url 'core:index' %}">صفحه اصلی</a>
+            </li>
+            <li>/ جزئیات مربی</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="template_agent section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+          <div class="single_agent">
+            <div class="single_agent_image">
+              <img src="{{teacher.image.url}}" class="img-fluid" alt="{{teacher.name}}" />
+            </div>
+            <div class="single_agent_content">
+              <h4>{{teacher.name}} </h4>
+              <h5>{{teacher.expertise}} </h5>
+              <p>{{teacher.bio}}</p>
+              <ul>
+                <li>
+                  <i class="email"></i>{{teacher.email}}
+                </li>
+                <li>
+                  <i class="phone"></i>{{teacher.number}}
+                </li>
+                <li>
+                  <a href="{{teacher.website}}" class="link">{{teacher.website}}</a>
+                </li>
+              </ul>
+            </div>
+            <div class="agent_social">
+              <ul class="list-inline">
+                <li>
+                  <a href="#" class="top_f_facebook"> دوره ها </a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

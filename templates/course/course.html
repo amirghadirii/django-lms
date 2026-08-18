@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <section class="section-top">
+    <div class="container">
+      <div class="col-lg-10 offset-lg-1 text-center">
+        <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+          <h1>همه دوره</h1>
+          <ul>
+            <li>
+              <a href="{% url 'core:index' %}">صفحه اصلی</a>
+            </li>
+            <li>/ دروس</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="home_course section-padding">
+    <div class="container">
+      <div class="row">
+        {% for course in courses %}
+          <div class="col-lg-4 col-sm-6 col-xs-12">
+            <div class="single_course">
+              <div class="single_c_img">
+                <img src="{{ course.image.url }}" class="img-fluid" alt="course-image" />
+                <span>{{ course.category }}</span>
+              </div>
+              <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><h4><a href="{% url 'course:course_details' slug=course.slug %}">{{ course.title }}</a></h4>
+              <p>
+                <span class="ti-alarm-clock"></span> {{ course.duration_hours }} ساعت
+              </p>
+              <div class="price">هزینه دوره - {{ course.price }} تومان</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <!-- Pagination -->
+      {% if courses.has_other_pages %}
+        <nav class="blog-pagination justify-content-center d-flex">
+          <ul class="pagination">
+            {% if courses.has_previous %}
+              <li class="page-item">
+                <a href="?page={{ courses.previous_page_number }}" class="page-link" aria-label="Previous">
+                  <span aria-hidden="true"><span class="lnr lnr-chevron-left"></span></span>
+                </a>
+              </li>
+            {% endif %}
+
+            {% for i in courses.paginator.page_range %}
+              {% if courses.number == i %}
+                <li class="page-item active">
+                  <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                </li>
+              {% elif i >= courses.number|add:'-2' and i <= courses.number|add:'2' %}
+                <li class="page-item">
+                  <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+
+            {% if courses.has_next %}
+              <li class="page-item">
+                <a href="?page={{ courses.next_page_number }}" class="page-link" aria-label="Next">
+                  <span aria-hidden="true"><span class="lnr lnr-chevron-right"></span></span>
+                </a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

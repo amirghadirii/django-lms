@@ -1,0 +1,7 @@
+<form action="{% url 'blog:search' %}" method="get" class="banner_subs">
+  <input type="text" name="s" class="form-control home_si" placeholder="دوره خود را اینجا جستجو کنید" value="{{ request.GET.s|default:'' }}" required />
+  <button type="submit" class="subscribe__btn" title="جستجوی دوره آموزشی">
+    جستجو کردن
+    <i class="fa fa-paper-plane-o"></i>
+  </button>
+</form>

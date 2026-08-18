@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+  <section class="section-top">
+    <div class="container">
+      <div class="col-lg-10 offset-lg-1 text-center">
+        <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+          <h1>وبلاگ ما</h1>
+          <ul>
+            <li>
+              <a href="{% url 'core:index' %}">صفحه اصلی</a>
+            </li>
+            <li>/ وبلاگ</li>
+          </ul>
+          {% include 'blog/blog_search.html' %}
+        </div>
+      </div>
+    </div>
+  </section>
+  
+ <section id="blog" class="blog_area section-padding">
+    <div class="container">
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+                <div class="single_blog">
+                    <img src="{{ post.image.url }}" class="img-fluid" alt="{{ post.title }}" />
+
+                    <div class="content_box">
+                        <span>
+                            {% if post.category %}
+                                <a href="{% url 'blog:category' cat_name=post.category.name %}">{{ post.category.name }}</a> |
+                            {% endif %}
+                            {{ post.published_date|naturalday }}
+                        </span>
+                        <h2>
+                            <a href="{% url 'blog:single' pid=post.id %}">{{ post.title }}</a>
+                        </h2>
+                        <p class="excerpt">{{ post.content|truncatewords:15 }}</p>
+                        <a class="btn_one" href="{% url 'blog:single' pid=post.id %}">ادامه مطلب
+                            <i class="ti-arrow-top-left"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div> 
+
+        <!-- Pagination -->
+        {% if posts.has_other_pages %}
+        <nav class="blog-pagination justify-content-center d-flex">
+            <ul class="pagination">
+                {% if posts.has_previous %}
+                <li class="page-item">
+                    <a href="?page={{ posts.previous_page_number }}" class="page-link" aria-label="Previous">
+                        <span aria-hidden="true"><span class="lnr lnr-chevron-left"></span></span>
+                    </a>
+                </li>
+                {% endif %}
+
+                {% for i in posts.paginator.page_range %}
+                    {% if posts.number == i %}
+                        <li class="page-item active">
+                            <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                        </li>
+                    {% elif i >= posts.number|add:'-2' and i <= posts.number|add:'2' %}
+                        <li class="page-item">
+                            <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if posts.has_next %}
+                <li class="page-item">
+                    <a href="?page={{ posts.next_page_number }}" class="page-link" aria-label="Next">
+                        <span aria-hidden="true"><span class="lnr lnr-chevron-right"></span></span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</section>
+  
+{% endblock %}

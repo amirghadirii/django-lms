@@ -1,0 +1,11 @@
+{% load static %}
+<div class="sidebar-post">
+  <div class="tag">
+    <div class="sidebar_title">
+      <h4>برچسب محبوب</h4>
+    </div>
+    {% for tag in posts.tags.all %}
+    <a href="{% url 'blog:tag' tag_name=tag.name %}">{{tag.name}}</a>
+    {% endfor %}
+  </div>
+</div>

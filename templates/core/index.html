@@ -1,0 +1,315 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load blog_tags %}
+{% load course_tags %}
+{% block content %}
+{% load humanize %}
+
+  <section class="home_bg hb_height" style="background-image: url({% static 'assets/img/bg/home-bg.jpg' %}); background-size:cover; background-position: center center;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-sm-12 col-xs-12">
+          <div class="hero-text ht_top">
+            <h1><span>کدنویسی آگاهانه،</span>پلی به سوی دنیای حرفه‌ای‌ها</h1>
+            <p>از صفر مطلق تا ورود به بازار کار کنار شما هستیم. با متدهای آموزشی پروژه‌محور و اساتید مجرب، تخصص‌هایی را یاد بگیرید که جهان امروز به آن‌ها نیاز دارد.</p>
+          </div>
+          <div class="home_sb">
+            {% include 'core/search_home.html' %}
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 col-xs-12">
+          <div class="hero-text-img">
+            <img src="{% static 'assets/img/home-img2.png' %}" class="img-fluid" alt="آموزش آنلاین برنامه نویسی" />
+            <div class="home_ps">
+              <span class="ti-user"></span><h2>4500+</h2>
+              <p>دانش آموز فعال</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="count_area counter_feature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-sm-6 col-xs-12">
+          <div class="single-counter">
+            <span class="ti-folder sc_one"></span><h2 class="counter-num">134</h2>
+            <p>دوره آنلاین ما</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-xs-12">
+          <div class="single-counter">
+            <span class="ti-medall-alt sc_two"></span><h2 class="counter-num">299</h2>
+            <p>برنامه ها</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-xs-12">
+          <div class="single-counter">
+            <span class="ti-id-badge sc_three"></span><h2 class="counter-num">684</h2>
+            <p>دانشجویان ماهر</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-xs-12">
+          <div class="single-counter">
+            <span class="ti-user sc_four"></span><h2 class="counter-num">941</h2>
+            <p>ثبت نام کرده ها</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="top_cat__area section-padding" style="background-image: url({% static 'assets/img/bg/shape-1.png' %}); background-size:cover; background-position: center center;">
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>مسیر حرفه‌ای شدن در دنیای کدنویسی را آغاز کنید</h2>
+        <p>ما با متدهای نوین آموزشی، پیچیده‌ترین مفاهیم برنامه‌نویسی و توسعه وب را برای شما ساده کرده‌ایم. با انتخاب دوره‌های تخصصی ما، مهارت‌هایی را یاد بگیرید که بازار کار امروز تشنه آن‌هاست.</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
+          <div class="single_tp">
+            <span class="sc_one">01</span><h3>اساتید مجرب<br />و فعال در بازار کار</h3>
+            <p>یادگیری زیر نظر برنامه‌نویسان ارشد که تجربه‌ی پروژه‌های واقعی را به شما منتقل می‌کنند.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+          <div class="single_tp">
+            <span class="sc_two">02</span><h3>آموزش پروژه‌محور<br />و با کیفیت</h3>
+            <p>تمرکز ما بر یادگیری عمیق مفاهیم است؛ از اولین خط کد تا پیاده‌سازی کامل پروژه‌های تجاری.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s" data-wow-offset="0">
+          <div class="single_tp">
+            <span class="sc_three">03</span><h3>یادگیری منعطف<br />و آنلاین</h3>
+            <p>در هر زمان و هر مکان به محتوای آموزشی دسترسی داشته باشید و طبق برنامه شخصی خود پیش بروید.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s" data-wow-offset="0">
+          <div class="single_tp">
+            <span class="sc_four">04</span><h3>پشتیبانی دائمی<br />و رفع اشکال</h3>
+            <p>ما شما را تنها نمی‌گذاریم؛ در تمام طول مسیر یادگیری، تیم فنی ما پاسخگوی سوالات و چالش‌های شماست.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ab_area section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
+          <div class="ab_img">
+            <img src="{% static 'assets/img/about1.png' %}" class="img-fluid" alt="درباره آکادمی برنامه نویسی" />
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+          <div class="ab_content">
+            <h2>معتبرترین دوره‌های تخصصی برنامه‌نویسی، بدون محدودیت مرزی</h2>
+            <p>ما در اینجا با بهره‌گیری از جدیدترین متدهای آموزشی دنیا، مسیر یادگیری برنامه‌نویسی را برای شما هموار کرده‌ایم. هدف ما این است که دانش‌جویان نه تنها تئوری، بلکه چالش‌های واقعی دنیای نرم‌افزار را تجربه کنند.</p>
+            <p>با انتخاب هر یک از دوره‌های ما، به مجموعه‌ای از پروژه‌های عملی، تمرین‌های هوشمند و جامعه‌ای از متخصصان متصل می‌شوید تا مهارت‌های خود را به سطح بین‌المللی برسانید.</p>
+            <ul>
+              <li>
+                <span class="ti-check"></span>دسترسی به بیش از ۱۰۰ دوره تخصصی از مقدماتی تا پیشرفته
+              </li>
+              <li>
+                <span class="ti-check"></span>یادگیری جدیدترین تکنولوژی‌ها و فریم‌ورک‌های ترند بازار کار (React, Python, Node.js)
+              </li>
+              <li>
+                <span class="ti-check"></span>آموزش زیر نظر منتورهای باسابقه و متخصص در حوزه‌های مختلف وب
+              </li>
+            </ul>
+            <a class="btn_one" href="{% url 'course:course' %}" title="مشاهده تمامی دوره‌ها">مشاهده همه دوره ها<i class="ti-arrow-left"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="top_cat__area section-padding" style="background-image: url({% static 'assets/img/bg/section-2.jpg' %}); background-size:cover; background-position: center center;">
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>محبوب‌ترین حوزه‌های یادگیری را کاوش کنید</h2>
+        <p>دنیای برنامه‌نویسی گسترده است؛ ما بر اساس نیاز بازار کار، دوره‌ها را در دسته‌بندی‌های تخصصی مرتب کرده‌ایم. حوزه مورد علاقه خود را انتخاب کنید و همین امروز اولین گام را برای متخصص شدن بردارید.</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+          <div class="cat_list">
+            <ul>
+              {% for category in categories %}
+                <li>
+                  <a href="#" title="دسته بندی {{ category.name }}"><img src="{% static 'assets/img/e1.png' %}" alt="{{ category.name }}" />{{ category.name }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="home_course section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-6 col-xs-12">
+          <div class="section-title">
+            <h2>همراه با بیش از<b>80000+</b><br />مدرس متخصص و دانش‌پذیر مشتاق</h2>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 col-xs-12">
+          <div class="cour_btn">
+            <a href="{% url 'course:course' %}" class="btn_one" title="لیست کامل دوره‌های آموزشی">مشاهده تمام دوره ها<i class="ti-arrow-top-left"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {% latest_course %}
+      </div>
+    </div>
+  </section>
+  <div class="partner-logo section-padding">
+    <div class="container">
+      <div class="row part_bg">
+        <div class="col-lg-4 col-sm-4 col-xs-12">
+          <div class="partner_title">
+            <h3>بیش از<span>86000+</span>شرکت معتبر، متخصصان خود را از میان دانش‌آموختگان ما انتخاب می‌کنند.</h3>
+          </div>
+        </div>
+        <div class="col-lg-8 col-sm-8 col-xs-12 text-center">
+          <div class="partner">
+            <a href="#"><img src="{% static 'assets/img/clients/1.png' %}" alt="partner logo" /></a><a href="#"><img src="{% static 'assets/img/clients/2.png' %}" alt="partner logo" /></a><a href="#"><img src="{% static 'assets/img/clients/3.png' %}" alt="partner logo" /></a><a href="#"><img src="{% static 'assets/img/clients/4.png' %}" alt="partner logo" /></a><a href="#"><img src="{% static 'assets/img/clients/5.png' %}" alt="partner logo" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="vid_area section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 vp_top wow fadeInUDown" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
+          <div class="video-area" style="background-image: url({% static 'assets/img/bg/video.jpg' %}); background-size:cover; background-position: center center;">
+            <a href="https://www.youtube.com/watch?v=RXv_uIN6e-Y" class="magnific_popup video-button" title="ویدیو معرفی آکادمی"><i class="fa fa-play"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="team_area section-padding">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 col-sm-12 text-center">
+          <div class="section-title">
+            <h2>با اساتید و منتورهای ما آشنا شوید</h2>
+            <p style="margin-bottom: 30px;">موفقیت شما در گرو یادگیری از بهترین‌هاست. اساتید ما از میان برنامه‌نویسان ارشد انتخاب شده‌اند تا تجربه‌ی واقعی بازار کار را به شما منتقل کنند.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-xs-12 text-left">
+          <div class="cour_btn">
+            <a href="{% url 'instructor:instructor_home' %}" class="btn_one" title="مشاهده لیست اساتید">مشاهده همه اساتید</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {% for teacher in teachers %}
+          <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+            <div class="our-team">
+              <div class="team-content">
+                <a href="{% url 'instructor:instructor_single' slug=teacher.slug %}" title="رزومه {{ teacher.name }}"><img src="{{ teacher.image.url }}" alt="استاد {{ teacher.name }}" /></a>
+              </div>
+              <div class="team-prof">
+                <h3>{{ teacher.name }}</h3>
+                <span>{{ teacher.expertise }}</span>
+              </div>
+              <div class="sth_det2">
+                <span class="ti-file"><u>{{ teacher.get_courses_count }} دوره</u></span><span class="ti-user"><u>{{ teacher.get_total_students }} دانشجو</u></span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <section class="ab_area section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+          <div class="ab_content">
+            <h2>چرا یادگیری برنامه‌نویسی با ما؟</h2>
+            <p>ما با رویکردی متفاوت، مفاهیم اساسی دنیای توسعه نرم‌افزار را از پایه تا پیشرفته به شما آموزش می‌دهیم. هدف ما فراتر از آموزش تئوری، آماده‌سازی شما برای ورود به بازار کار و انجام پروژه‌های واقعی است.</p>
+            <p>در آکادمی ما، شما فقط کد زدن را یاد نمی‌گیرید، بلکه تفکر حل مسئله و استانداردهای حرفه‌ای برنامه‌نویسی را در کنار بهترین اساتید تجربه خواهید کرد</p>
+            <ul>
+              <li>
+                <span class="ti-check"></span>دسترسی به بیش از<b>۱۰۰ دوره تخصصی</b>و پروژه‌محور
+              </li>
+              <li>
+                <span class="ti-check"></span>آموزش جدیدترین تکنولوژی‌های ترند بازار کار (۲۰۲۶)
+              </li>
+              <li>
+                <span class="ti-check"></span>منتورینگ اختصاصی و ارتباط مستقیم با اساتید برتر
+              </li>
+            </ul>
+            <a class="btn_one" href="{% url 'course:course' %}" title="لیست دوره های برنامه نویسی">مشاهده همه دوره ها<i class="ti-arrow-top-left"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
+          <div class="ab_img">
+            <img src="{% static 'assets/img/about3.png' %}" class="img-fluid" alt="مزایای یادگیری آنلاین" />
+            <div class="home_ps2">
+              <span class="ti-book"></span><h2>3300+</h2>
+              <p>دوره آنلاین</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="testi_area section-padding">
+    <div class="container">
+      <div class="section-title">
+        <h2>دانشجویان ما در مورد تجربه یادگیری<br />خود چه می‌گویند؟</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-sm-12 col-xs-12">
+          <div class="ab_img">
+            <img src="{% static 'assets/img/review.png' %}" class="img-fluid" alt="نظرات دانش آموزان" />
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 col-xs-12">
+          <div id="testimonial-slider" class="owl-carousel">
+            <div class="testimonial">
+              <img src="{% static 'assets/img/quote.png' %}" alt="quote" />
+              <div class="testimonial_content">
+                <i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i>
+                <p>دوره جامع فرانت‌اِند این مجموعه فوق‌العاده بود. من قبلاً با آموزش‌های پراکنده گیج شده بودم، اما اینجا همه چیز طبق نقشه راه و پروژه‌محور پیش رفت. الان به عنوان کارآموز در یک شرکت معتبر مشغول هستم.</p>
+              </div>
+              <div class="testi_pic_title">
+                <img src="{% static 'assets/img/testimonial/1.png' %}" alt="رضا حسینی" /><h4>رضا حسینی</h4>
+                <p>دانشجوی دوره React</p>
+              </div>
+            </div>
+            <div class="testimonial">
+              <img src="{% static 'assets/img/quote.png' %}" alt="quote" />
+              <div class="testimonial_content">
+                <i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i>
+                <p>پشتیبانی دوره پایتون واقعاً بی‌نظیر است. هر جا که در کدنویسی به مشکل می‌خوردم، اساتید در کمترین زمان ممکن راهنمایی‌ام می‌کردند. این بخش از آموزش برای من ارزش دوچندانی داشت.</p>
+              </div>
+              <div class="testi_pic_title">
+                <img src="{% static 'assets/img/testimonial/2.png' %}" alt="سارا مرادی" /><h4>سارا مرادی</h4>
+                <p>توسعه‌دهنده بک‌اِند</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="blog" class="blog_area section-padding">
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>تازه‌ترین مقالات و اخبار دنیای تکنولوژی</h2>
+        <p>با مطالعه وبلاگ ما، از آخرین تغییرات دنیای برنامه‌نویسی باخبر شوید و مهارت‌های نرم و سخت خود را ارتقا دهید. ما اینجا هستیم تا شما را در مسیر یادگیری مداوم و به‌روز ماندن همراهی کنیم.</p>
+      </div>
+      <div class="row">
+
+        {% latest_post %}
+      
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% load static %}
+<div class="sidebar-post">
+  <div class="newsletter-form">
+    <h4>عضویت در خبرنامه سایت</h4>
+    <p>با عضویت در خبرنامه، جدیدترین مقالات و آموزش‌ها را مستقیماً در ایمیل خود دریافت کنید. بدون اسپم، فقط محتوای ارزشمند.</p>
+
+    <form action="{% url 'core:newsletter' %}" method="post" class="subscribe">
+      {% csrf_token %}
+
+      <input type="hidden" name="next" value="{{ request.get_full_path }}" />
+
+      <input type="email" name="email" class="subscribe__input" placeholder="آدرس ایمیل خود را وارد کنید" required />
+
+      <button type="submit" class="sub_btn">عضویت</button>
+    </form>
+  </div>
+</div>

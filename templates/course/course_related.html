@@ -1,0 +1,15 @@
+{% load static %}
+<div class="related_course">
+  <h3>دوره مرتبط</h3>
+  {% for course in courses %}
+    <div class="single_rc">
+      <div class="rc_img">
+        <img src="{{ course.image.url }}" alt="{{ course.title }}" />
+      </div>
+      <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><h4><a href="{% url 'course:course_details' slug=course.slug %}">{{ course.title }}</a></h4>
+      <span>{{ course.price }} تومان</span>
+    </div>
+  {% empty %}
+    <p>دوره مرتبطی یافت نشد.</p>
+  {% endfor %}
+</div>

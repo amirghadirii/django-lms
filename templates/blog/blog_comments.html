@@ -1,0 +1,42 @@
+{% load static %}
+{% load humanize %}
+<div class="comments_part">
+  <h3 class="blog_head_title">نظرات</h3>
+  {% for comment in comments %}
+    <div class="single_comment">
+      <img src="{% static 'assets/img/blog/c1.jpg' %}" alt="" /><h4>{{ comment.name }}</h4>
+      <p class="date">{{ comment.created_date|naturalday }}</p>
+      <p>{{ comment.message }}</p>
+    </div>
+  {% empty %}
+    <p>هنوز هیچ نظری ثبت نشده است.</p>
+  {% endfor %}
+</div>
+<div class="comment_form">
+  <h3 class="blog_head_title">یک نظر اضافه کنید</h3>
+  <div class="contact comment-box">
+    <form id="contact-form" method="post" action="{% url 'blog:single' pid=posts.id %}">
+      {% csrf_token %}
+      <div class="row">
+        <div class="form-group col-md-6">
+          <input type="hidden" name="post" value="{{ posts.id }}" />
+          <input type="text" name="name" class="form-control" id="first-name" placeholder="نام" required="required" />
+        </div>
+        <div class="form-group col-md-6">
+          <input type="email" name="email" class="form-control" id="first-email" placeholder="پست الکترونیک" required="required" />
+        </div>
+        <div class="form-group col-md-12">
+          <input type="text" name="subject" class="form-control" id="subject" placeholder="موضوع" required="required" />
+        </div>
+        <div class="form-group col-md-12">
+          <textarea rows="6" name="message" class="form-control" id="description" placeholder="پیغام تو" required="required"></textarea>
+        </div>
+        <div class="col-md-12">
+          <div class="actions">
+            <button type="submit" value="Send message" name="submit" id="submitButton" class="btn btn_one" title="Submit Your Message!">ثبت کردن نظر</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
